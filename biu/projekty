@@ -1,0 +1,47 @@
+Kryteria ogólne oceniania:
+- Użycie frameworka (Angular)
+- Użycie frameworka css (Material Design / bootstrap)
+- Estetyka wizualna aplikacji
+- Odporność na błędy
+- Struktura kodu
+- użycie preprocesora css
+- użycie reactive forms
+- użycie NgRX
+- użycie komunikacji między komponentami
+
+
+1. Kalkulator monte carlo - do obliczenia czy dana ręka w turze licytacji preflop jest wystarczająca aby podbić w grze Fix Limit Texas Holdem
+* konfiguracja liczby osób
+* konfiguracja sb / bb
+* wybór kart z drzewka kart
+* przeprowadzenie symulacji i wyliczenie w miarę poprawnego wyniku dla wybranej karty
+* przeprowadzenie symulacji w celu podpowiedzi wszystkich kart z zbioru kart, które są EV+ dla danej sytuacji
+* Dodanie 3 funkcjonalności własnych
+
+2. Aplikacja do wspierania gier planszowych
+* zaimplementowanie wsparcia dla przynajmniej 1 konkretnej gry
+* możliwość definiowania generycznych reguł np. co turę dodajemy graczowi jego zysk
+* możliwość definiowania zasobów
+* możliwość definiowania zachowań np. co turę, co zdarzenie
+* możliwość definiowania zbioru zdarzeń
+* export / import
+* Dodanie 3 funkcjonalności własnych
+
+3. Nakładka na bookshelf API Google'a:
+https://developers.google.com/books/docs/overview
+* zarządzanie swoim bookshelfem (CRUD)
+* wyszukiwanie tekstowe
+* możliwość importu / exportu do csv
+* edytor do porównywania swoich bookshelfów i ich różnic
+* Dodanie 3 funkcjonalności własnych
+
+4. Kopia Painta
+* rysowanie zależne od zaznaczonego wyboru
+* minimum 5 opcji (np. grubość kreski, kolor, gumka)
+* minimum 3 kształty
+* możliwość przesuwania obiektów / kopiowania / wklejania
+* możliwość importu / exportu swojego obrazka
+* Dodanie 3 funkcjonalności własnych
+
+5. Temat dowolny:
+* złożenie propozycji tematu z elementami do oceny
