@@ -1,47 +1,109 @@
 Kryteria ogólne oceniania:
-- Użycie frameworka (Angular)
-- Użycie frameworka css (Material Design / bootstrap)
+- Użycie frameworka (Angular / Vue / React / inne - zaproponować)
+- Użycie frameworka css (Material Design / Bootstrap / inne - zaproponować)
 - Estetyka wizualna aplikacji
 - Odporność na błędy
 - Struktura kodu
 - użycie preprocesora css
 - użycie reactive forms
-- użycie NgRX
+- użycie rxJs
 - użycie komunikacji między komponentami
+- użycie typescripta
 
+
+Punktacja:
+
+Sprawozdanie przedstawiające temat i zakres, co będzie dostarczone - 1 pkt
+
+Reactive Forms [5 pkt]:
+ - użycie validatorów 1 pkt.
+ - użycie customowego validatora 1 pkt.
+ - użycie grupowania kontroli 1 pkt.
+ - dodanie obsługi błędów 1 pkt.
+ - dodanie komponentu do obsługi błędów 1 pkt.
+ 
+Użycie preprocesora css [5 pkt]:
+  - zagnieżdżanie css 1 pkt
+  - tworzenie mixinów 1 pkt
+  - użycie zmiennych 1 pkt
+  - definicja plików z zbiorem logicznie zgrupowanych zmiennych do reużywania w aplikacji 1 pkt
+  - zastosowanie metodyki BEM - http://getbem.com/ - 1 pkt
+  
+Użycie frameworka css [9 pkt]:
+ - używanie komponentów z frameworka 2 pkt
+ - użycie i oprogramowanie tabeli 2 pkt
+ - użycie i oprogramowanie wyszukiwarki 2 pkt
+ - napisanie własnego komponentu wizualnego i reużywanie w aplikacji 3 pkt
+ 
+Użycie frameworka do SPA + bibliotek wspomagających (Angular / Vue / React) [10 pkt]:
+ - routing 2 pkt
+ - używanie i napisanie własnych guardów - 2pkt
+ - podział modularny zgodnie z dobrymi praktykami frameworka 3 pkt
+ - użycie poprawne mechanizmów frameworka / idiomów zgodnie z przeznaczeniem 3 pkt
+ 
+Komunikacja między komponentami [11 pkt]:
+ - poprawne użycie relacji rodzic - dziecko i komunikacja dwukierunkowa 1 pkt
+ - poprawne zaprojektowanie i zaprogramowanie komunikacji między wieloma poziomami aplikacji np. rodzic i dziecko dziecka dziecka - 3 pkt
+ - wykonanie bardziej złożonego formularza z zależnościami np. wizard z 3 stronami i zresetowanie na przycisk reset wszystkich 10 komponentów. - 7 pkt
+ 
+Użycie rxJs [5 pkt]:
+ - użycie filtrów 1 pkt
+ - użycie rxJs w całej komunikacji asynchronicznej - 3 pkt
+ - użycie maperów 1 pkt
+
+Użycie TypeScripta [8 pkt]:
+ - użycie enumów - 1 pkt
+ - użycie poprawne typowania 3 pkt
+ - użyce propertiesów 2 pkt
+ - podział modularny - 1 pkt
+ - użycie interfejsów - 1 pkt
+ 
+Struktura kodu [16 pkt]:
+ - single responsibility - 3 pkt
+ - jednoznaczne nazwy zmiennych / funkcji / klas / plików - 3 pkt
+ - trzymanie się konwencji danego środowiska programistycznego - 3 pkt
+ - używanie testów jednostkowych do weryfikacji poprawnośći działania programu - 3 pkt
+ - używanie testów integracyjnych do weryfikacji popranwośći działania programu - 3 pkt
+ - użycie TypeScripta - 1 pkt
+
+Odporność na błędy od użytkownika [5 pkt]
+Estetyka wizualna aplikacji [3 pkt]
+
+
+Tematy:
 
 1. Kalkulator monte carlo - do obliczenia czy dana ręka w turze licytacji preflop jest wystarczająca aby podbić w grze Fix Limit Texas Holdem
-* konfiguracja liczby osób
-* konfiguracja sb / bb
-* wybór kart z drzewka kart
-* przeprowadzenie symulacji i wyliczenie w miarę poprawnego wyniku dla wybranej karty
-* przeprowadzenie symulacji w celu podpowiedzi wszystkich kart z zbioru kart, które są EV+ dla danej sytuacji
-* Dodanie 3 funkcjonalności własnych
+* konfiguracja liczby osób 1 pkt
+* konfiguracja sb / bb 1 pkt
+* wybór kart z drzewka kart 6 pkt
+* przeprowadzenie symulacji i wyliczenie w miarę poprawnego wyniku dla wybranej karty 10 pkt
+* przeprowadzenie symulacji w celu podpowiedzi wszystkich kart z zbioru kart, które są EV+ dla danej sytuacji 6 pkt
+* Dodanie 3 funkcjonalności własnych 6 pkt
 
 2. Aplikacja do wspierania gier planszowych
-* zaimplementowanie wsparcia dla przynajmniej 1 konkretnej gry
-* możliwość definiowania generycznych reguł np. co turę dodajemy graczowi jego zysk
-* możliwość definiowania zasobów
-* możliwość definiowania zachowań np. co turę, co zdarzenie
-* możliwość definiowania zbioru zdarzeń
-* export / import
-* Dodanie 3 funkcjonalności własnych
+* zaimplementowanie wsparcia dla przynajmniej 1 konkretnej gry 10 pkt
+* możliwość definiowania generycznych reguł np. co turę dodajemy graczowi jego zysk 10 pkt
+    * np. możliwość definiowania zasobów
+    * np. możliwość definiowania zachowań np. co turę, co zdarzenie
+    * np. możliwość definiowania zbioru zdarzeń
+* export / import stanu gry = 4 pkt
+* Dodanie 3 funkcjonalności własnych 6 pkt
 
 3. Nakładka na bookshelf API Google'a:
 https://developers.google.com/books/docs/overview
-* zarządzanie swoim bookshelfem (CRUD)
-* wyszukiwanie tekstowe
-* możliwość importu / exportu do csv
-* edytor do porównywania swoich bookshelfów i ich różnic
-* Dodanie 3 funkcjonalności własnych
+* zarządzanie swoim bookshelfem (CRUD) 6pkt
+* wyszukiwanie tekstowe 6pkt
+* możliwość importu / exportu do csv 6 pkt
+* edytor do porównywania swoich bookshelfów i ich różnic 6pkt
+* Dodanie 3 funkcjonalności własnych 6 pkt
 
 4. Kopia Painta
-* rysowanie zależne od zaznaczonego wyboru
-* minimum 5 opcji (np. grubość kreski, kolor, gumka)
-* minimum 3 kształty
-* możliwość przesuwania obiektów / kopiowania / wklejania
-* możliwość importu / exportu swojego obrazka
-* Dodanie 3 funkcjonalności własnych
+* rysowanie zależne od zaznaczonego wyboru 8pkt
+* minimum 5 opcji (np. grubość kreski, kolor, gumka) 4pkt
+* minimum 3 kształty 4pkt
+* możliwość przesuwania obiektów / kopiowania / wklejania 4pkt
+* możliwość importu / exportu swojego obrazka 4pkt
+* Dodanie 3 funkcjonalności własnych 6 pkt
 
 5. Temat dowolny:
 * złożenie propozycji tematu z elementami do oceny
