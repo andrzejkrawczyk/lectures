@@ -1,0 +1,17 @@
+.todo-list-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+
+    height: 100px;
+    width: 100px;
+
+    .todo-item-header {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .todo-item-body {
+        margin-top: 4px;
+    }
+}

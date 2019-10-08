@@ -1,0 +1,16 @@
+<div class="todo-list-form">
+    <span class="header">Add new Todo</span>
+    <div class="form-row">
+        <label for="todo-title">Title:</label>
+        <input #title
+               type="text" id="todo-title">
+    </div>
+    <div class="form-row">
+        <label for="todo-body">Body:</label>
+        <input #body type="text" id="todo-body">
+    </div>
+    <div class="buttons">
+        <button (click)="onAddTodoClick(title.value, body.value)">Add</button>
+        <button (click)="onClearClick()">Clear</button>
+    </div>
+</div>

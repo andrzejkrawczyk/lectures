@@ -1,0 +1,11 @@
+<div class="todo-list-item">
+    <div class="todo-item-header">
+        <input type="checkbox" (change)="onChange($event)">
+        <div class="title">
+            <span>{{ todoItem.title }}</span>
+        </div>
+    </div>
+    <div class="todo-item-body">
+        <span>{{ todoItem.description }}</span>
+    </div>
+</div>
