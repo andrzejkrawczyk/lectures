@@ -3,6 +3,9 @@
         <input type="checkbox" (change)="onChange($event)">
         <div class="title">
             <span>{{ todoItem.title }}</span>
+
+            <a *ngIf="isProtected" [routerLink]="['/', todoItem.id, 'protected', 'item']">Details</a>
+            <a *ngIf="!isProtected" [routerLink]="['/', todoItem.id, 'item']">Details</a>
         </div>
     </div>
     <div class="todo-item-body">

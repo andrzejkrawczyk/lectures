@@ -1,0 +1,30 @@
+div.todo-list-template-form {
+    form {
+        .header {
+            background-color: darkgray;
+        }
+
+        .header {
+            margin-bottom: 4px;
+        }
+
+        .form-row {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            input {
+                margin-left: 4px;
+            }
+        }
+
+        .buttons {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+

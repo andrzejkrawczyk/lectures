@@ -1,0 +1,8 @@
+.todo-list {
+    display: flex;
+    flex-direction: row;
+
+    app-todo-list-template-form {
+        margin-left: 20px;
+    }
+}

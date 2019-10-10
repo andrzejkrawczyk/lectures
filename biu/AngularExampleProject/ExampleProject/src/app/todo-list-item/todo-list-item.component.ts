@@ -11,7 +11,10 @@ export class TodoListItemComponent implements OnInit {
     @Input() todoItem: TodoItem;
     @Output() onTodoItemChange: EventEmitter<TodoItemChange> = new EventEmitter<TodoItemChange>();
 
+    public isProtected: boolean = false;
+
     constructor() {
+        this.isProtected = Math.random() > 0.5;
     }
 
     ngOnInit() {

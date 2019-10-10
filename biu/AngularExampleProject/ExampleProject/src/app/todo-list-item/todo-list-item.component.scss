@@ -4,7 +4,12 @@
     border: 1px solid black;
 
     height: 100px;
-    width: 100px;
+    width: 200px;
+
+    .title {
+        display: flex;
+        flex-direction: column;
+    }
 
     .todo-item-header {
         display: flex;

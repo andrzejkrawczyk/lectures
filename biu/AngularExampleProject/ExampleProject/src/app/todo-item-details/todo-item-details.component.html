@@ -1,0 +1,11 @@
+<div>
+    <div class="content" *ngIf="isInitialized">
+        <h1>{{ item.title }}</h1>
+        <h3> {{ item.id }}</h3>
+        <span>{{ item.description}}</span>
+        <button (click)="onBack()">Back!</button>
+    </div>
+    <div *ngIf="!isInitialized">
+        Is loading!
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="todo-list-template-form">
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+        <span class="header">Template Driven Form</span>
+        <div class="form-row">
+            <label for="todo-title">Title:</label>
+            <input type="text" id="todo-title"
+                   [(ngModel)]="titleInput"
+                   required
+                   name="title"
+                    #title="ngModel">
+            <div [hidden]="title.valid || title.pristine"
+                 class="text-error">
+                Title is required
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="todo-body">Body:</label>
+            <input type="text" id="todo-body"
+                   [(ngModel)]="descriptionInput"
+                   required
+                   name="todo-body"
+                   #description="ngModel">
+            <div [hidden]="description.valid || description.pristine"
+                 class="text-error">
+                Title is required
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="submit"
+                    [disabled]="!todoForm.form.valid">Add
+            </button>
+            <button (click)="onReset()">Clear</button>
+        </div>
+    </form>
+</div>

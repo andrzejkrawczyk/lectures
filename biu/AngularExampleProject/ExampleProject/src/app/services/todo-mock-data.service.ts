@@ -6,7 +6,7 @@ import {TodoItem} from '../models/TodoItem';
 })
 export class TodoMockDataService {
 
-    private todoItems: TodoItem[] = [
+    private _todoItems: TodoItem[] = [
         new TodoItem('First item', 'Ala ma kota'),
         new TodoItem('Second item', 'Ala ma psa'),
         new TodoItem('Fourth item', 'Ala ma lame'),
@@ -16,7 +16,19 @@ export class TodoMockDataService {
     constructor() {
     }
 
-    public getTodoItems(): TodoItem[] {
-        return this.todoItems;
+    get todoItems(): TodoItem[] {
+        return this._todoItems;
+    }
+
+    public addTodoItem(item: TodoItem) {
+        this._todoItems.push(item);
+    }
+
+    public getTodo(id: number) {
+        for(let item of this._todoItems) {
+            if (item.id === id) {
+                return item;
+            }
+        }
     }
 }
