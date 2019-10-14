@@ -1,0 +1,8 @@
+<div>
+  <app-invoice-form
+  (onNewInvoice)="onNewInvoice($event)"></app-invoice-form>
+  <app-invoices-list
+    [invoices]="invoices"></app-invoices-list>
+  <app-summary
+    [invoices]="invoices"></app-summary>
+</div>

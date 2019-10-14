@@ -1,0 +1,15 @@
+<div>
+    <table>
+        <tr>
+            <td>TYP</td>
+            <td>OPIS</td>
+            <td>NETTO</td>
+            <td>%VAT</td>
+            <td>BRUTTO</td>
+            <td>VAT</td>
+        </tr>
+        <app-invoice-list-item *ngFor="let invoice of invoices.elements"
+                               [invoice]="invoice"
+        ></app-invoice-list-item>
+    </table>
+</div>

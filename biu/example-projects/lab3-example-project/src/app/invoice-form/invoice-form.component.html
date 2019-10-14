@@ -1,0 +1,37 @@
+<div class="invoice-form">
+    <div class="form-row">
+        <label for="netto">Netto:</label>
+        <input type="text" id="netto"
+               #nettoInput
+        >
+    </div>
+
+    <div class="form-row">
+        <label for="Description">Description:</label>
+        <input type="text" id="description"
+               #descriptionInput>
+    </div>
+    <div class="form-row">
+        <label for="isCost">Kosztowa:</label>
+        <input type="checkbox" id="isCost"
+               #isCostInput>
+    </div>
+
+    <div class="form-row">
+        <label for="23VAT">23%</label>
+        <input type="radio" id="23VAT" value="0.23" name="vat"
+               #isVat23>
+        <label for="23VAT">8%</label>
+        <input type="radio" id="8VAT" value="0.08" name="vat"
+               #isVat8>
+    </div>
+
+    <button (click)="onAddInvoice(
+        nettoInput.value,
+        descriptionInput.value,
+        isCostInput.checked,
+        isVat23.checked,
+        isVat8.checked
+    )">Dodaj
+    </button>
+</div>
