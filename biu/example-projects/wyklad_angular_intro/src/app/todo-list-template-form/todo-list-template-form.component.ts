@@ -33,6 +33,7 @@ export class TodoListTemplateFormComponent implements OnInit {
     }
 
     onReset() {
+        console.log(this.todoForm.form);
         this.todoForm.resetForm();
     }
 }
