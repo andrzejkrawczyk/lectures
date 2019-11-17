@@ -57,7 +57,19 @@ export class AppComponent {
         });
     }
 
-    setNewArrayRootAndChild() {}
+    setNewArrayRootAndChild1Array = ['setNewArrayRootAndChild 0'];
+    setNewArrayRootAndChild1ArrayIterator = 0;
+    setNewArrayRootAndChild2Array = this.setNewArrayRootAndChild1Array;
+    setNewArrayRootAndChild() {
+        this.setNewArrayRootAndChild1Array.push(
+            `setNewArrayRootAndChild ${this
+                .setNewArrayRootAndChild1ArrayIterator++}`
+        );
+        this.setNewArrayRootAndChild2Array = [];
+        this.setNewArrayRootAndChild1Array.forEach(e => {
+            this.setNewArrayRootAndChild2Array.push(e);
+        });
+    }
 
     // pipes
     pipePush() {}

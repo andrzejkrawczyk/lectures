@@ -40,6 +40,9 @@
             <button (click)="setNewArrayRootAndChild()">
                 W korzeniu i w dziecku twożona nowa tablica
             </button>
+            <app-set-new-array-root-and-child
+                [array]="setNewArrayRootAndChild2Array"
+            ></app-set-new-array-root-and-child>
         </div>
     </div>
     <div *ngSwitchCase="3" class="container">
