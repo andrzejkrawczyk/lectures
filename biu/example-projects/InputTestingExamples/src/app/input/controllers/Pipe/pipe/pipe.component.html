@@ -1,0 +1,17 @@
+<div class="container">
+    <table class="row">
+        <tr *ngFor="let i of array">
+            <td>
+                {{ i }}
+            </td>
+        </tr>
+    </table>
+
+    <table class="row">
+        <tr *ngFor="let i of array | even">
+            <td>
+                {{ i }}
+            </td>
+        </tr>
+    </table>
+</div>
