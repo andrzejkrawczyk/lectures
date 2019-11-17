@@ -12,37 +12,37 @@
         </div>
         <div class="col">
             <button (click)="newArray()">Nowa Tablica</button>
-            <app-new-array [array]="newArray2Array"></app-new-array>
+            <app-push [array]="newArray2Array"></app-push>
         </div>
     </div>
     <div *ngSwitchCase="2" class="container">
         <div class="col">
             <button (click)="setPush()">Push</button>
-            <app-set-push [array]="setPushArray"></app-set-push>
+            <app-set-reference [array]="setPushArray"></app-set-reference>
         </div>
         <div class="col">
             <button (click)="setPushChildNewArray()">
                 Push, w dziecku twożona nowa tablica
             </button>
-            <app-set-push-child-new-array
+            <app-set-new-array
                 [array]="setPushChildNewArrayArray"
-            ></app-set-push-child-new-array>
+            ></app-set-new-array>
         </div>
         <div class="col">
             <button (click)="setNewArrayRoot()">
                 w korzeniu twożona nowa tablica
             </button>
-            <app-set-new-array-root
+            <app-set-reference
                 [array]="SetNewArrayRoot2Array"
-            ></app-set-new-array-root>
+            ></app-set-reference>
         </div>
         <div class="col">
             <button (click)="setNewArrayRootAndChild()">
                 W korzeniu i w dziecku twożona nowa tablica
             </button>
-            <app-set-new-array-root-and-child
+            <app-set-new-array
                 [array]="setNewArrayRootAndChild2Array"
-            ></app-set-new-array-root-and-child>
+            ></app-set-new-array>
         </div>
     </div>
     <div *ngSwitchCase="3" class="container">

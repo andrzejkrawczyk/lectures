@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-set-new-array-root',
-    templateUrl: './set-new-array-root.component.html',
-    styleUrls: ['./set-new-array-root.component.scss'],
+    selector: 'app-set-reference',
+    templateUrl: './set-reference.component.html',
+    styleUrls: ['./set-reference.component.scss'],
 })
-export class SetNewArrayRootComponent {
+export class SetReferenceComponent {
     arr: Array<string>;
     setCallCounter = 0;
 
