@@ -10,7 +10,7 @@ import { SetNewArrayRootComponent } from './input/controllers/Set/set-new-array-
 // tslint:disable-next-line: max-line-length
 import { SetNewArrayRootAndChildComponent } from './input/controllers/Set/set-new-array-root-and-child/set-new-array-root-and-child.component';
 import { EvenPipe } from './input/pipes/even.pipe';
-import { PipePushComponent } from './input/controllers/Pipe/pipe-push/pipe-push.component';
+import { PipeComponent } from './input/controllers/Pipe/pipe/pipe.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +22,7 @@ import { PipePushComponent } from './input/controllers/Pipe/pipe-push/pipe-push.
         SetNewArrayRootComponent,
         SetNewArrayRootAndChildComponent,
         EvenPipe,
-        PipePushComponent,
+        PipeComponent,
     ],
     imports: [BrowserModule],
     providers: [],
