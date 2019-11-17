@@ -5,9 +5,18 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
 import { PushComponent } from './input/controllers/Standardowe/push/push.component';
 import { NewArrayComponent } from './input/controllers/Standardowe/new-array/new-array.component';
+import { SetPushComponent } from './input/controllers/set/set-push/set-push.component';
+import { SetPushChildNewArrayComponent } from './input/controllers/set/set-push-child-new-array/set-push-child-new-array.component';
 
 @NgModule({
-    declarations: [AppComponent, InputComponent, PushComponent, NewArrayComponent],
+    declarations: [
+        AppComponent,
+        InputComponent,
+        PushComponent,
+        NewArrayComponent,
+        SetPushComponent,
+        SetPushChildNewArrayComponent,
+    ],
     imports: [BrowserModule],
     providers: [],
     bootstrap: [AppComponent],

@@ -30,7 +30,11 @@ export class AppComponent {
     }
 
     // z set
-    setPush() {}
+    setPushArray = ['SetPush 0'];
+    setPushArrayIterator = 1;
+    setPush() {
+        this.setPushArray.push(`SetPush ${this.setPushArrayIterator++}`);
+    }
 
     setPushChildNewArray() {}
 

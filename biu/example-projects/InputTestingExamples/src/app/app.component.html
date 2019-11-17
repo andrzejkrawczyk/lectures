@@ -18,6 +18,7 @@
     <div *ngSwitchCase="2" class="container">
         <div class="col">
             <button (click)="setPush()">Push</button>
+            <app-set-push [array]="setPushArray"></app-set-push>
         </div>
         <div class="col">
             <button (click)="setPushChildNewArray()">
