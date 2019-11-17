@@ -50,11 +50,13 @@
             <button (click)="pipePush()">
                 Push, tablica która jest filtrowana pipem w dziecku
             </button>
+            <app-pipe-push [array]="pipePushArray"></app-pipe-push>
         </div>
         <div class="col">
-            <button (click)="pipePush()">
+            <button (click)="pipeNewAray()">
                 korzeń twoży nową tablice, która jest filtrowana pipem w dziecku
             </button>
+            <app-pipe-push [array]="pipeNewArray2Array"></app-pipe-push>
         </div>
     </div>
     <div *ngSwitchDefault>NiemaTakiegoEkranu</div>

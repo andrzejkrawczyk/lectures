@@ -6,20 +6,20 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    currentScreen = 2;
+    currentScreen = 3;
     changeScreen(i: number) {
         this.currentScreen = i;
     }
 
     // bez Set
-    pushArray = ['Push 0'];
-    pushArrayIterator = 1;
+    pushArray = ['Push 1'];
+    pushArrayIterator = 2;
     push() {
         this.pushArray.push(`Push ${this.pushArrayIterator++}`);
     }
 
-    newArray1Array = ['New Array 0'];
-    newArray1ArrayIterator = 1;
+    newArray1Array = ['New Array 1'];
+    newArray1ArrayIterator = 2;
     newArray2Array = this.newArray1Array;
     newArray() {
         this.newArray1Array.push(`New Array ${this.newArray1ArrayIterator++}`);
@@ -30,22 +30,22 @@ export class AppComponent {
     }
 
     // z set
-    setPushArray = ['SetPush 0'];
-    setPushArrayIterator = 1;
+    setPushArray = ['SetPush 1'];
+    setPushArrayIterator = 2;
     setPush() {
         this.setPushArray.push(`SetPush ${this.setPushArrayIterator++}`);
     }
 
-    setPushChildNewArrayArray = ['setPushChildNewArray 0'];
-    setPushChildNewArrayIterator = 1;
+    setPushChildNewArrayArray = ['setPushChildNewArray 1'];
+    setPushChildNewArrayIterator = 2;
     setPushChildNewArray() {
         this.setPushChildNewArrayArray.push(
             `setPushChildNewArray ${this.setPushChildNewArrayIterator++}`
         );
     }
 
-    SetNewArrayRoot1Array = ['SetNewArrayRoot 0'];
-    SetNewArrayRoot1ArrayIterator = 0;
+    SetNewArrayRoot1Array = ['SetNewArrayRoot 1'];
+    SetNewArrayRoot1ArrayIterator = 2;
     SetNewArrayRoot2Array = this.SetNewArrayRoot1Array;
     setNewArrayRoot() {
         this.SetNewArrayRoot1Array.push(
@@ -57,8 +57,8 @@ export class AppComponent {
         });
     }
 
-    setNewArrayRootAndChild1Array = ['setNewArrayRootAndChild 0'];
-    setNewArrayRootAndChild1ArrayIterator = 0;
+    setNewArrayRootAndChild1Array = ['setNewArrayRootAndChild 1'];
+    setNewArrayRootAndChild1ArrayIterator = 2;
     setNewArrayRootAndChild2Array = this.setNewArrayRootAndChild1Array;
     setNewArrayRootAndChild() {
         this.setNewArrayRootAndChild1Array.push(
@@ -72,7 +72,24 @@ export class AppComponent {
     }
 
     // pipes
-    pipePush() {}
+    pipePushArray = ['Pipe Push Array 1'];
+    pipePushArrayIterator = 2;
+    pipePush() {
+        this.pipePushArray.push(
+            `Pipe Push Array ${this.pipePushArrayIterator++}`
+        );
+    }
 
-    pipeNewAray() {}
+    pipeNewArray1Array = ['PipeNewArray 1'];
+    pipeNewArray1ArrayIterator = 2;
+    pipeNewArray2Array = this.pipeNewArray1Array;
+    pipeNewAray() {
+        this.pipeNewArray1Array.push(
+            `PipeNewArray ${this.pipeNewArray1ArrayIterator++}`
+        );
+        this.pipeNewArray2Array = [];
+        this.pipeNewArray1Array.forEach(e => {
+            this.pipeNewArray2Array.push(e);
+        });
+    }
 }
