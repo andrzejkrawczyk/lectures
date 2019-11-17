@@ -36,9 +36,26 @@ export class AppComponent {
         this.setPushArray.push(`SetPush ${this.setPushArrayIterator++}`);
     }
 
-    setPushChildNewArray() {}
+    setPushChildNewArrayArray = ['setPushChildNewArray 0'];
+    setPushChildNewArrayIterator = 1;
+    setPushChildNewArray() {
+        this.setPushChildNewArrayArray.push(
+            `setPushChildNewArray ${this.setPushChildNewArrayIterator++}`
+        );
+    }
 
-    setNewArrayRoot() {}
+    SetNewArrayRoot1Array = ['SetNewArrayRoot 0'];
+    SetNewArrayRoot1ArrayIterator = 0;
+    SetNewArrayRoot2Array = this.SetNewArrayRoot1Array;
+    setNewArrayRoot() {
+        this.SetNewArrayRoot1Array.push(
+            `SetNewArrayRoot ${this.SetNewArrayRoot1ArrayIterator++}`
+        );
+        this.SetNewArrayRoot2Array = [];
+        this.SetNewArrayRoot1Array.forEach(e => {
+            this.SetNewArrayRoot2Array.push(e);
+        });
+    }
 
     setNewArrayRootAndChild() {}
 

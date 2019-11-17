@@ -24,11 +24,17 @@
             <button (click)="setPushChildNewArray()">
                 Push, w dziecku twożona nowa tablica
             </button>
+            <app-set-push-child-new-array
+                [array]="setPushChildNewArrayArray"
+            ></app-set-push-child-new-array>
         </div>
         <div class="col">
             <button (click)="setNewArrayRoot()">
                 w korzeniu twożona nowa tablica
             </button>
+            <app-set-new-array-root
+                [array]="SetNewArrayRoot2Array"
+            ></app-set-new-array-root>
         </div>
         <div class="col">
             <button (click)="setNewArrayRootAndChild()">

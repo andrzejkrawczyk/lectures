@@ -7,6 +7,7 @@ import { PushComponent } from './input/controllers/Standardowe/push/push.compone
 import { NewArrayComponent } from './input/controllers/Standardowe/new-array/new-array.component';
 import { SetPushComponent } from './input/controllers/set/set-push/set-push.component';
 import { SetPushChildNewArrayComponent } from './input/controllers/set/set-push-child-new-array/set-push-child-new-array.component';
+import { SetNewArrayRootComponent } from './input/controllers/Set/set-new-array-root/set-new-array-root.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { SetPushChildNewArrayComponent } from './input/controllers/set/set-push-
         NewArrayComponent,
         SetPushComponent,
         SetPushChildNewArrayComponent,
+        SetNewArrayRootComponent,
     ],
     imports: [BrowserModule],
     providers: [],
