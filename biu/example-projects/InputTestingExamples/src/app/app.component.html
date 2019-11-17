@@ -12,6 +12,7 @@
         </div>
         <div class="col">
             <button (click)="newArray()">Nowa Tablica</button>
+            <app-new-array [array]="newArray2Array"></app-new-array>
         </div>
     </div>
     <div *ngSwitchCase="2" class="container">

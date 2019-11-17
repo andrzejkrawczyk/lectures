@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    currentScreen = 1;
+    currentScreen = 2;
     changeScreen(i: number) {
         this.currentScreen = i;
     }
@@ -18,7 +18,16 @@ export class AppComponent {
         this.pushArray.push(`Push ${this.pushArrayIterator++}`);
     }
 
-    newArray() {}
+    newArray1Array = ['New Array 0'];
+    newArray1ArrayIterator = 1;
+    newArray2Array = this.newArray1Array;
+    newArray() {
+        this.newArray1Array.push(`New Array ${this.newArray1ArrayIterator++}`);
+        this.newArray2Array = [];
+        this.newArray1Array.forEach(e => {
+            this.newArray2Array.push(e);
+        });
+    }
 
     // z set
     setPush() {}
