@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
+import { PushComponent } from './input/controllers/Standardowe/push/push.component';
 
 @NgModule({
-    declarations: [AppComponent, InputComponent],
+    declarations: [AppComponent, InputComponent, PushComponent],
     imports: [BrowserModule],
     providers: [],
     bootstrap: [AppComponent],

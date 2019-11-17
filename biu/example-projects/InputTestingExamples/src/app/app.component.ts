@@ -12,7 +12,11 @@ export class AppComponent {
     }
 
     // bez Set
-    push() {}
+    pushArray = ['Push 0'];
+    pushArrayIterator = 1;
+    push() {
+        this.pushArray.push(`Push ${this.pushArrayIterator++}`);
+    }
 
     newArray() {}
 

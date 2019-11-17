@@ -8,16 +8,43 @@
     <div *ngSwitchCase="1" class="container">
         <div class="col">
             <button (click)="push()">Push</button>
+            <app-push [array]="pushArray"></app-push>
         </div>
         <div class="col">
             <button (click)="newArray()">Nowa Tablica</button>
         </div>
     </div>
     <div *ngSwitchCase="2" class="container">
-      <div class="col">
-        
-      </div>
+        <div class="col">
+            <button (click)="setPush()">Push</button>
+        </div>
+        <div class="col">
+            <button (click)="setPushChildNewArray()">
+                Push, w dziecku twożona nowa tablica
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="setNewArrayRoot()">
+                w korzeniu twożona nowa tablica
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="setNewArrayRootAndChild()">
+                W korzeniu i w dziecku twożona nowa tablica
+            </button>
+        </div>
     </div>
-    <div *ngSwitchCase="3" class="container">output</div>
+    <div *ngSwitchCase="3" class="container">
+        <div class="col">
+            <button (click)="pipePush()">
+                Push, tablica która jest filtrowana pipem w dziecku
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="pipePush()">
+                korzeń twoży nową tablice, która jest filtrowana pipem w dziecku
+            </button>
+        </div>
+    </div>
     <div *ngSwitchDefault>NiemaTakiegoEkranu</div>
 </div>
