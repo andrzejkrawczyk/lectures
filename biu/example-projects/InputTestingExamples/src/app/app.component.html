@@ -1,15 +1,23 @@
-<div class="container">
-    <div class="col">
-        <button (click)="click1()">Input</button>
-        <app-input [arr]="arr1"></app-input>
+<div class="navbar">
+    <button (click)="changeScreen(1)">Standardowe</button>
+    <button (click)="changeScreen(2)">Input Set</button>
+    <button (click)="changeScreen(3)">Pipe</button>
+</div>
+
+<div [ngSwitch]="currentScreen">
+    <div *ngSwitchCase="1" class="container">
+        <div class="col">
+            <button (click)="push()">Push</button>
+        </div>
+        <div class="col">
+            <button (click)="newArray()">Nowa Tablica</button>
+        </div>
     </div>
-    <div class="col">
-        <button (click)="click2()">InputSet</button>
-        <app-input-set [arr]="arr2"></app-input-set>
+    <div *ngSwitchCase="2" class="container">
+      <div class="col">
+        
+      </div>
     </div>
-    <div class="col">
-        <button (click)="click3()">InputSetZmianaTablicy</button>
-        <app-input-set-zmiana-tablicy [arr]="arrPassed">
-        </app-input-set-zmiana-tablicy>
-    </div>
+    <div *ngSwitchCase="3" class="container">output</div>
+    <div *ngSwitchDefault>NiemaTakiegoEkranu</div>
 </div>
