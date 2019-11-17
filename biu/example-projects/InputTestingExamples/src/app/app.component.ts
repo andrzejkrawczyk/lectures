@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    currentScreen = 2;
+    currentScreen = 1;
     changeScreen(i: number) {
         this.currentScreen = i;
     }
