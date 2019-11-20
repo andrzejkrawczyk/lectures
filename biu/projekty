@@ -62,8 +62,8 @@ Struktura kodu [16 pkt]:
  - single responsibility - 3 pkt
  - jednoznaczne nazwy zmiennych / funkcji / klas / plików - 3 pkt
  - trzymanie się konwencji danego środowiska programistycznego - 3 pkt
- - używanie testów jednostkowych do weryfikacji poprawnośći działania programu - 3 pkt
- - używanie testów integracyjnych do weryfikacji popranwośći działania programu - 3 pkt
+ - używanie testów jednostkowych do weryfikacji poprawności działania programu - 3 pkt
+ - używanie testów integracyjnych do weryfikacji popranwości działania programu - 3 pkt
  - użycie TypeScripta - 1 pkt
 
 Odporność na błędy od użytkownika [5 pkt]
