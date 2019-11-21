@@ -59,23 +59,8 @@
             </app-set-new-array>
         </div>
     </div>
-    <div *ngSwitchCase="3" class="container">
-        <div class="col">
-            <span class="opis">
-                Rodzic nie zmienia referencji przekazywanej tablicy.
-                Niefiltrowane dane są aktualizowane, filtrowane nie.
-            </span>
-            <button (click)="pipePush()">Dodaj Element</button>
-            <app-pipe [array]="pipePushArray"></app-pipe>
-        </div>
-        <div class="col">
-            <span class="opis">
-                Rodzic zmienia referencję przekazywanej tablicy. Pipe zostaje
-                ponownie wywołany przez co wyświetlane wartości są aktualizowane
-            </span>
-            <button (click)="pipeNewAray()">Dodaj Element</button>
-            <app-pipe [array]="pipeNewArray2Array"></app-pipe>
-        </div>
+    <div *ngSwitchCase="3">
+        <app-pipe-display></app-pipe-display>
+        <div *ngSwitchDefault>NiemaTakiegoEkranu</div>
     </div>
-    <div *ngSwitchDefault>NiemaTakiegoEkranu</div>
 </div>

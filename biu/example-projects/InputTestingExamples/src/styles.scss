@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+$border: 2px solid black;
+.navbar {
+    padding: 20px;
+    display: grid;
+    grid-template-areas: 's i p';
+    column-gap: 20px;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+
+    .col {
+        border-top: $border;
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0px;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .col:nth-child(n):not(:last-child) {
+        border-right: $border;
+    }
+}
+.opis {
+    padding-bottom: 20px;
+}

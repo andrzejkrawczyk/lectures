@@ -7,6 +7,7 @@ import { SetNewArrayComponent } from './components/Set/set-new-array/set-new-arr
 import { SetReferenceComponent } from './components/Set/set-reference/set-reference.component';
 import { EvenPipe } from './pipes/even.pipe';
 import { PipeComponent } from './components/Pipe/pipe/pipe.component';
+import { PipeDisplayComponent } from './components/Pipe/pipe-display/pipe-display.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { PipeComponent } from './components/Pipe/pipe/pipe.component';
         SetReferenceComponent,
         EvenPipe,
         PipeComponent,
+        PipeDisplayComponent,
     ],
     imports: [BrowserModule],
     providers: [],
