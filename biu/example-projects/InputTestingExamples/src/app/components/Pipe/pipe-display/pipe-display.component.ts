@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class PipeDisplayComponent {
     pipePushArray = ['Element 1', 'Element 2'];
     pipePushArrayIterator = 2;
-    pipePush() {
-        this.pipePushArray.push(`Element ${this.pipePushArrayIterator++}`);
-    }
 
     pipeNewArray1Array = ['Element 1', 'Element 2'];
     pipeNewArray1ArrayIterator = 2;
     pipeNewArray2Array = this.pipeNewArray1Array;
+
+    pipePush() {
+        this.pipePushArray.push(`Element ${this.pipePushArrayIterator++}`);
+    }
+
     pipeNewAray() {
         this.pipeNewArray1Array.push(
             `Element ${this.pipeNewArray1ArrayIterator++}`

@@ -9,21 +9,28 @@ export class SetDisplayComponent {
     // z set
     setPushArray = ['Element 1'];
     setPushArrayIterator = 2;
+
+    setPushChildNewArrayArray = ['Element 1'];
+    setPushChildNewArrayIterator = 2;
+
+    SetNewArrayRoot1Array = ['Element 1'];
+    SetNewArrayRoot1ArrayIterator = 2;
+    SetNewArrayRoot2Array = this.SetNewArrayRoot1Array;
+
+    setNewArrayRootAndChild1Array = ['Element 1'];
+    setNewArrayRootAndChild1ArrayIterator = 2;
+    setNewArrayRootAndChild2Array = this.setNewArrayRootAndChild1Array;
+
     setPush() {
         this.setPushArray.push(`Element ${this.setPushArrayIterator++}`);
     }
 
-    setPushChildNewArrayArray = ['Element 1'];
-    setPushChildNewArrayIterator = 2;
     setPushChildNewArray() {
         this.setPushChildNewArrayArray.push(
             `Element ${this.setPushChildNewArrayIterator++}`
         );
     }
 
-    SetNewArrayRoot1Array = ['Element 1'];
-    SetNewArrayRoot1ArrayIterator = 2;
-    SetNewArrayRoot2Array = this.SetNewArrayRoot1Array;
     setNewArrayRoot() {
         this.SetNewArrayRoot1Array.push(
             `Element ${this.SetNewArrayRoot1ArrayIterator++}`
@@ -34,9 +41,6 @@ export class SetDisplayComponent {
         });
     }
 
-    setNewArrayRootAndChild1Array = ['Element 1'];
-    setNewArrayRootAndChild1ArrayIterator = 2;
-    setNewArrayRootAndChild2Array = this.setNewArrayRootAndChild1Array;
     setNewArrayRootAndChild() {
         this.setNewArrayRootAndChild1Array.push(
             `Element ${this.setNewArrayRootAndChild1ArrayIterator++}`
