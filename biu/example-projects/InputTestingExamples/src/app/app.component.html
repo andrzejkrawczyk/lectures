@@ -5,22 +5,8 @@
 </div>
 
 <div [ngSwitch]="currentScreen">
-    <div *ngSwitchCase="1" class="container">
-        <div class="col">
-            <span class="opis">
-                Tablica przekazywana jest przez referencję
-            </span>
-            <button (click)="push()">Dodaj Element</button>
-            <app-push [array]="pushArray"></app-push>
-        </div>
-        <div class="col">
-            <span class="opis">
-                Przy każdym dodaniu elementu jest twożona nowa tablica, która
-                jest potem przekazywana
-            </span>
-            <button (click)="newArray()">Dodaj Element</button>
-            <app-push [array]="newArray2Array"></app-push>
-        </div>
+    <div *ngSwitchCase="1">
+        <app-standardowe-display></app-standardowe-display>
     </div>
     <div *ngSwitchCase="2">
         <app-set-display></app-set-display>

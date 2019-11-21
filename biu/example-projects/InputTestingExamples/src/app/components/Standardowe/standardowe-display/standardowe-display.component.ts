@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-standardowe-display',
-  templateUrl: './standardowe-display.component.html',
-  styleUrls: ['./standardowe-display.component.scss']
+    selector: 'app-standardowe-display',
+    templateUrl: './standardowe-display.component.html',
+    styleUrls: ['./standardowe-display.component.scss'],
 })
-export class StandardoweDisplayComponent implements OnInit {
+export class StandardoweDisplayComponent {
+    // bez Set
+    pushArray = ['Element 1'];
+    pushArrayIterator = 2;
+    push() {
+        this.pushArray.push(`Element ${this.pushArrayIterator++}`);
+    }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    newArray1Array = ['Element  1'];
+    newArray1ArrayIterator = 2;
+    newArray2Array = this.newArray1Array;
+    newArray() {
+        this.newArray1Array.push(`Element  ${this.newArray1ArrayIterator++}`);
+        this.newArray2Array = [];
+        this.newArray1Array.forEach(e => {
+            this.newArray2Array.push(e);
+        });
+    }
 }
