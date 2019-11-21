@@ -22,42 +22,8 @@
             <app-push [array]="newArray2Array"></app-push>
         </div>
     </div>
-    <div *ngSwitchCase="2" class="container">
-        <div class="col">
-            <span class="opis">
-                Rodzic zmienia tabicę, dziecko używa referencji aby aktualizować
-                dane
-            </span>
-            <button (click)="setPush()">Dodaj Element</button>
-            <app-set-reference [array]="setPushArray"></app-set-reference>
-        </div>
-        <div class="col">
-            <span class="opis">
-                Rodzic zmienia tablicę, dziecko nie używa referencji tylko czeka
-                na ponownie uruchomienie funkcji w @Input()
-            </span>
-            <button (click)="setPushChildNewArray()">Dodaj Element</button>
-            <app-set-new-array [array]="setPushChildNewArrayArray">
-            </app-set-new-array>
-        </div>
-        <div class="col">
-            <span class="opis">
-                Rodzic zmienia referencję do tablicy przekazaniej w @Input().
-                Dziecko używa referencji aby otrzymać dostęp do danych
-            </span>
-            <button (click)="setNewArrayRoot()">Dodaj Element</button>
-            <app-set-reference [array]="SetNewArrayRoot2Array">
-            </app-set-reference>
-        </div>
-        <div class="col">
-            <span class="opis">
-                Rodzic zmienia referencję do tablicy przekazaniej w @Input().
-                Dziecko aktualizuje dane po uruchomieniu funkcji w @Input()
-            </span>
-            <button (click)="setNewArrayRootAndChild()">Dodaj Element</button>
-            <app-set-new-array [array]="setNewArrayRootAndChild2Array">
-            </app-set-new-array>
-        </div>
+    <div *ngSwitchCase="2">
+        <app-set-display></app-set-display>
     </div>
     <div *ngSwitchCase="3">
         <app-pipe-display></app-pipe-display>

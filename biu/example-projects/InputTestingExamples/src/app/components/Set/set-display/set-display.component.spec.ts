@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PipeDisplayComponent } from './pipe-display.component';
+import { SetDisplayComponent } from './set-display.component';
 
-describe('PipeDisplayComponent', () => {
-  let component: PipeDisplayComponent;
-  let fixture: ComponentFixture<PipeDisplayComponent>;
+describe('SetDisplayComponent', () => {
+  let component: SetDisplayComponent;
+  let fixture: ComponentFixture<SetDisplayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PipeDisplayComponent ]
+      declarations: [ SetDisplayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PipeDisplayComponent);
+    fixture = TestBed.createComponent(SetDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

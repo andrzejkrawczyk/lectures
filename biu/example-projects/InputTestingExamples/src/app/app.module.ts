@@ -8,6 +8,8 @@ import { SetReferenceComponent } from './components/Set/set-reference/set-refere
 import { EvenPipe } from './pipes/even.pipe';
 import { PipeComponent } from './components/Pipe/pipe/pipe.component';
 import { PipeDisplayComponent } from './components/Pipe/pipe-display/pipe-display.component';
+import { SetDisplayComponent } from './components/Set/set-display/set-display.component';
+import { StandardoweDisplayComponent } from './components/Standardowe/standardowe-display/standardowe-display.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +20,8 @@ import { PipeDisplayComponent } from './components/Pipe/pipe-display/pipe-displa
         EvenPipe,
         PipeComponent,
         PipeDisplayComponent,
+        SetDisplayComponent,
+        StandardoweDisplayComponent,
     ],
     imports: [BrowserModule],
     providers: [],
