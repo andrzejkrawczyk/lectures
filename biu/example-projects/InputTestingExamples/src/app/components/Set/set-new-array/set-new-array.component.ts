@@ -9,10 +9,11 @@ export class SetNewArrayComponent {
     arr: Array<string>;
     setCallCounter = 0;
     @Input() set array(a: Array<string>) {
-        this.arr = [];
+        const temp = [];
         a.forEach(e => {
-            this.arr.push(e);
+            temp.push(e);
         });
+        this.arr = temp;
         this.setCallCounter += 1;
     }
 }
