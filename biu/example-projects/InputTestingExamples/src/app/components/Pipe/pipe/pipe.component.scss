@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: row;
+
+    .row {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0px;
+        flex-direction: column;
+    }
+    table:first-child {
+        border-collapse: collapse;
+        tr {
+            border-spacing: 0px;
+            border-right: 2px solid black;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<div class="navbar">
+    <button (click)="changeScreen(1)">Standardowe</button>
+    <button (click)="changeScreen(2)">Input Set</button>
+    <button (click)="changeScreen(3)">Pipe</button>
+</div>
+
+<div [ngSwitch]="currentScreen">
+    <div *ngSwitchCase="1">
+        <app-standardowe-display></app-standardowe-display>
+    </div>
+    <div *ngSwitchCase="2">
+        <app-set-display></app-set-display>
+    </div>
+    <div *ngSwitchCase="3">
+        <app-pipe-display></app-pipe-display>
+    </div>
+    <div *ngSwitchDefault>NiemaTakiegoEkranu</div>
+</div>
