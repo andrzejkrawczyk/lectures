@@ -1,0 +1,61 @@
+runtime: python27
+instance_class: F1
+threadsafe: true
+
+automatic_scaling:
+    min_instances: 0
+    max_instances: 1
+    min_idle_instances: 0
+    max_idle_instances: 1
+    min_pending_latency: 10ms
+    max_pending_latency: 30ms
+
+handlers:
+# Routing for bundles to serve directly
+- url: /((?:inline|main|polyfills|styles|vendor)\.[a-z0-9]+\.js)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: dist/\1
+  upload: dist/.*
+  expiration: "7d"
+
+- url: /assets/(.*)
+  static_files: dist/assets/\1
+  secure: always
+  redirect_http_response_code: 301
+  upload: dist/assets/(.*)
+  expiration: "7d"
+
+- url: /(.*\.ttf)
+  static_files: dist/\1
+  secure: always
+  redirect_http_response_code: 301
+  upload: dist/(.*\.ttf)
+  expiration: "30d"
+  mime_type: font/ttf
+
+- url: /(.*\.otf)
+  static_files: dist/\1
+  secure: always
+  redirect_http_response_code: 301
+  upload: dist/(.*\.otf)
+  expiration: "30d"
+  mime_type: font/ttf
+
+- url: /(.*\.(gif|png|jpeg|jpg|css|js|ico|svg))$
+  secure: always
+  redirect_http_response_code: 301
+  static_files: dist/\1
+  upload: dist/(.*)
+  expiration: "7d"
+
+
+# Any other requests are routed to index.html for angular to handle so we don't need hash URLs
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  static_files: dist/index.html
+  upload: dist/index\.html
+  http_headers:
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    X-Frame-Options: DENY
