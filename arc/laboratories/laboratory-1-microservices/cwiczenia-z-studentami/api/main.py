@@ -17,7 +17,7 @@ def generic_error_handler(ex, req, resp, params):
     elif isinstance(ex, falcon.HTTPMethodNotAllowed):
         raise falcon.HTTPMethodNotAllowed(falcon.HTTP_405, description='Method Not Allowed')
     else:
-        raise falcon.HTTP_SERVICE_UNAVAILABLE
+        raise ex
 
 
 app = falcon.API(middleware=[
