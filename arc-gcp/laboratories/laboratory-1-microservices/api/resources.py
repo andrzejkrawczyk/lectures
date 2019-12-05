@@ -11,6 +11,9 @@ from hooks import api_key, say_bye_after_operation
 
 import falcon
 
+from service.firestore_service import FirestoreService
+
+
 class Resource(object):
 
     def on_get(self, req, resp):
@@ -19,6 +22,7 @@ class Resource(object):
             'id': 1,
             'name': 'Random Name'
         }
+        FirestoreService().add_random_data()
         resp.body = json.dumps(resource)
         resp.status = falcon.HTTP_200
 

@@ -25,4 +25,8 @@ app = falcon.API(middleware=[
 ])
 
 app.add_route('/', Resource())
+# app.add_route('/api/v1/auth/', include(AuthRouting))
+# app.add_route('/api/v1/auth/login', Login())
+# app.add_route('/api/v1/auth/register', Register())
+
 app.add_error_handler(Exception, generic_error_handler)
