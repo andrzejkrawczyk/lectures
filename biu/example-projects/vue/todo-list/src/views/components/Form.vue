@@ -1,27 +1,27 @@
 <template>
     <form>
-        <div class="md-layout">
+        <div class="md-layout md-alignment-center-center">
 
             <div
-                    class="md-layout-item md-size-100 md-layout"
+                    class="md-layout-item md-size-70 md-layout md-alignment-center-center"
             >
-                <md-field class="md-layout-item md-size-50" style="margin: 25px 15px 5px">
+                <md-field class="md-layout-item md-size-100" style="margin: 25px 15px 5px">
                     <label>Tytuł</label>
                     <md-input v-model="title" type="text"></md-input>
                 </md-field>
             </div>
 
             <div
-                    class="md-layout-item md-size-100 md-layout"
+                    class="md-layout-item md-size-70 md-layout md-alignment-center-center"
             >
-                <md-field class="md-layout-item md-size-50" style="margin: 25px 15px 5px">
+                <md-field class="md-layout-item md-size-100" style="margin: 25px 15px 5px">
                     <label>Treść</label>
                     <md-input v-model="desc" type="text"></md-input>
                 </md-field>
             </div>
 
             <div
-                class="md-layout-item md-size-100 md-layout"
+                class="md-layout-item md-size-70 md-layout md-alignment-center-center"
             >
                 <h4 class="md-layout-item md-size-100">Kolor: </h4>
                 <md-radio v-model="type" value="info" class="md-layout-item md-size-20">Niebieski</md-radio>
@@ -31,7 +31,7 @@
             </div>
 
             <div
-                    class="md-layout-item md-size-100 md-layout"
+                    class="md-layout-item md-size-70 md-layout md-alignment-center-center"
             >
                 <h4 class="md-layout-item md-size-100">Ikonka: </h4>
                 <md-radio v-model="icon" value="schedule" class="md-layout-item md-size-20">
@@ -72,15 +72,17 @@
                 </md-radio>
                 <!-- Więcej ikon na: https://material.io/resources/icons/?style=baseline -->
             </div>
+            <div class="md-layout-item md-size-80 md-layout md-alignment-center-center">
+                <md-button
+                        class="md-layout-item md-size-50 md-primary"
+                        style="margin-top: 20px; margin-bottom: 50px;"
+                        type="submit"
+                        @click.prevent="submit()"
+                >
+                    Dodaj ToDo
+                </md-button>
+            </div>
 
-            <md-button
-                    class="md-layout-item md-size-20 md-layout"
-                    style="margin-top: 20px; margin-bottom: 50px;"
-                    type="submit"
-                    @click.prevent="submit()"
-            >
-                Dodaj ToDo
-            </md-button>
 
         </div>
     </form>
@@ -93,16 +95,21 @@ export default {
     name: "Form",
     data() {
         return {
-            title: null,
-            desc: null,
-            icon: null,
+            title: '',
+            desc: '',
+            icon: 'schedule',
             type: 'info'
         }
     },
     methods: {
         submit: function () {
             let x = new ToDoItem(ToDoList.length, this.title, this.desc, this.type, this.icon, 'PENDING' );
+            this.$emit('added');
             ToDoList.push(x);
+            this.title = '';
+            this.desc = '';
+            this.icon = 'schedule';
+            this.type = 'info';
         }
     }
 }

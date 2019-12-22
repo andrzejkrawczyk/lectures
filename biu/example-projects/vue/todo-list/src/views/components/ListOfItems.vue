@@ -6,6 +6,9 @@
             @deleted="deleteItem($event)"
             @completed="completeItem($event)"
         ></Item>
+        <md-snackbar :md-position="position" :md-duration="duration" :md-active.sync="showSnackbar" md-persistent>
+            <span>Usunięto to-do!</span>
+        </md-snackbar>
     </ul>
 </template>
 
@@ -17,7 +20,11 @@
         components: {Item},
         data() {
             return {
-                items: ToDoList
+                items: ToDoList,
+                showSnackbar: false,
+                position: 'left',
+                duration: 2000,
+                isInfinity: false
             }
         },
         methods: {
@@ -28,6 +35,7 @@
                    item.id = i;
                    i++;
                 }
+                this.showSnackbar = true;
             },
             completeItem(arg){
                 this.items[arg].state = 'COMPLETED';

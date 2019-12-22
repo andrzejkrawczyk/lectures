@@ -10,24 +10,28 @@
 
       <div class="section section-basic">
         <div class="container">
-          <div class="title" style="margin-bottom: 0">
-            <h2 style="margin-bottom: 0;">Dodaj ToDo: </h2>
+          <div class="title">
+            <h2 style="margin: 0;">ToDo List: </h2>
+            <router-link to="/form">
+              <md-button style="max-height: 40px" class="md-primary">
+                <p style="font-family: Helvetica,serif">Add ToDo</p>
+              </md-button>
+            </router-link>
           </div>
-          <Form></Form>
+          <list-of-items></list-of-items>
         </div>
       </div>
 
     </div>
-
   </div>
 </template>
 
 <script>
-import Form from "./components/Form";
+import ListOfItems from "./components/ListOfItems";
 
 export default {
   components: {
-    Form
+    ListOfItems
   },
   name: "index",
   bodyClass: "index-page",

@@ -11,22 +11,32 @@
       <div class="section section-basic">
         <div class="container">
           <div class="title">
-            <h2>To Do List:</h2>
+            <h2 style="margin: 0;">Dodaj ToDo: </h2>
+            <router-link to="/">
+              <md-button style="max-height: 40px" class="md-primary">
+                <md-icon>keyboard_arrow_left</md-icon>
+              </md-button>
+            </router-link>
           </div>
-          <list-of-items></list-of-items>
+          <Form @added="showSnackbar = true"></Form>
         </div>
       </div>
 
     </div>
+
+    <md-snackbar :md-position="position" :md-duration="duration" :md-active.sync="showSnackbar" md-persistent>
+      <span>Dodano to-do!</span>
+    </md-snackbar>
+
   </div>
 </template>
 
 <script>
-import ListOfItems from "./components/ListOfItems";
+import Form from "./components/Form";
 
 export default {
   components: {
-    ListOfItems
+    Form
   },
   name: "index",
   bodyClass: "index-page",
@@ -41,6 +51,14 @@ export default {
       return {
         backgroundImage: `url(${this.image})`
       };
+    }
+  },
+  data(){
+    return {
+      showSnackbar: false,
+      position: 'left',
+      duration: 2000,
+      isInfinity: false
     }
   }
 };
@@ -59,5 +77,10 @@ export default {
 }
   .page-header {
     height: 155px !important;
+  }
+
+  .title {
+    margin-bottom: 0; display: flex; justify-content: space-between;
+    align-items: center;
   }
 </style>
