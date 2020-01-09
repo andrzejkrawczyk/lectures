@@ -1,0 +1,12 @@
+$background: #bedead;
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .elem {
+        display: flex;
+        flex-direction: column;
+    }
+}
