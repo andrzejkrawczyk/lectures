@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {generateErrorMessage} from 'codelyzer/angular/styles/cssLexer';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { StepOneComponent } from '../step-one/step-one.component';
+import { StepTwoComponent } from '../step-two/step-two.component';
+import { StepThreeComponent } from '../step-three/step-three.component';
+import { StepFourComponent } from '../step-four/step-four.component';
+import { OfferComponent } from '../offer/offer.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-stepper',
@@ -8,76 +13,61 @@ import {generateErrorMessage} from 'codelyzer/angular/styles/cssLexer';
   styleUrls: ['./stepper.component.css']
 })
 
-export class StepperComponent implements OnInit {
+export class StepperComponent implements OnInit, AfterViewInit {
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  fourthFormGroup: FormGroup;
-  wantMattress = false;
+  @ViewChild(StepOneComponent, {static: false}) stepOneComponent: StepOneComponent;
+  @ViewChild(StepTwoComponent, {static: false}) stepTwoComponent: StepTwoComponent;
+  @ViewChild(StepThreeComponent, {static: false}) stepThreeComponent: StepThreeComponent;
+  @ViewChild(StepFourComponent, {static: false}) stepFourComponent: StepFourComponent;
+  @Output() offerEmitter = new EventEmitter<OfferComponent>();
 
-  constructor(private formBuilder: FormBuilder) { }
+  offerForm: FormGroup;
+  stepOneForm: FormGroup;
+  stepTwoForm: FormGroup;
+  stepThreeForm: FormGroup;
+  stepFourForm: FormGroup;
+
+  constructor(public formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.firstFormGroup = this.formBuilder.group({
-      nameControl: ['', Validators.required],
-      surnameControl: ['', Validators.required],
-      emailControl: ['', Validators.compose([
-        Validators.required, Validators.email
-      ])],
-      phoneControl: ['', Validators.compose([
-        Validators.required, Validators.pattern('\\+48([0-9]{9})')
-      ])],
-      address: this.formBuilder.group({
-        streetControl: ['', Validators.required],
-        postcodeControl: ['', Validators.compose([
-          Validators.required, Validators.pattern('[0-9]{2}\\-([0-9]{3})')
-        ])],
-        cityControl: ['', Validators.required]
-      })
+    this.offerForm = this.formBuilder.group({
+      withMattress: [false],
+      totalCost: [0]
     });
-    // @ts-ignore
-    this.secondFormGroup = this.formBuilder.group({
-      purchaseControl: ['', Validators.required],
-      areaControl: ['', Validators.compose([
-        Validators.required, Validators.min(0), Validators.pattern('\\d+')
-      ])],
-      formeterControl: ['', Validators.compose([
-        Validators.required, Validators.min(0), Validators.pattern('\\d+')
-      ])],
-      floorControl: ['', Validators.compose([
-        Validators.required, Validators.min(0), Validators.pattern('\\d+')
-      ])],
-      statusControl: ['', Validators.required],
-      address: this.formBuilder.group({
-        streetControl: ['', Validators.required],
-        postcodeControl: ['', Validators.compose([
-          Validators.required, Validators.pattern('[0-9]{2}\\-([0-9]{3})')
-        ])],
-        cityControl: ['', Validators.required]
-      })
-    });
-    this.thirdFormGroup = this.formBuilder.group({
-      mattressControl: ['', Validators.required],
-      coverControl: ['', Validators.required],
-      nameControl: ['', Validators.required],
-      typeControl: ['', Validators.required],
-      firmControl: ['', Validators.required],
-      /*mattressCoverControl: ['', this.compatibilityValidator]*/
-    });
-    this.fourthFormGroup = this.formBuilder.group({
-      commentControl: ['']
+    this.offerForm.valueChanges.subscribe(newVal => console.log(newVal));
+  }
+
+  ngAfterViewInit() {
+    this.stepOneForm = this.stepOneComponent.stepForm;
+    this.stepTwoForm = this.stepTwoComponent.stepForm;
+    this.stepThreeForm = this.stepThreeComponent.stepForm;
+    this.stepFourForm = this.stepFourComponent.stepForm;
+  }
+
+  patchTotalCost() {
+    this.stepTwoComponent.patchCost();
+    this.stepThreeComponent.patchCost();
+    this.offerForm.patchValue({
+      totalCost:
+        (this.stepTwoForm.value.cost + (this.offerForm.value.withMattress ? this.stepThreeForm.value.cost : 0))
     });
   }
 
-  compatibilityValidator(control: AbstractControl): { [key: string]: any }
-  | null {
-    const c = this.thirdFormGroup.value.coverControl;
-    const m = this.thirdFormGroup.value.mattressControl;
-    if ( m === c ) {
-      return null;
-    } else {
-      return {errorMessage: false};
+  makeOffer() {
+    this.offerForm.addControl('personalData', this.stepOneForm);
+    this.offerForm.addControl('appartmentDetails', this.stepTwoForm);
+    if (this.offerForm.value.withMattress) {
+      this.offerForm.addControl('mattressDetails', this.stepThreeForm);
     }
+    if (this.stepFourForm.value.comment && this.stepFourForm.value.comment !== '') {
+      this.offerForm.addControl('additionalData', this.stepFourForm);
+    }
+    this.sendOffer(this.offerForm);
+    this.offerForm.reset();
+  }
+
+  sendOffer(offerForm) {
+    this.offerEmitter.emit(new OfferComponent(offerForm));
+    console.log('Offer emitted!');
   }
 }

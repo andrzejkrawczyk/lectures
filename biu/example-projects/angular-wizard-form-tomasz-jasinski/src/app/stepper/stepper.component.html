@@ -1,217 +1,52 @@
-<mat-horizontal-stepper labelPosition="bottom"  #stepper> <!--linear-->
-<!--  <ng-template matStepperIcon="edit">
-    <mat-icon>insert_drive_file</mat-icon>
+<mat-horizontal-stepper [formGroup]="offerForm" labelPosition="bottom" linear #stepper>
+
+  <ng-template matStepperIcon="edit">
+    <mat-icon>done</mat-icon>
   </ng-template>
+    <ng-template matStepperIcon="done">
+      <mat-icon>done_all</mat-icon>
+    </ng-template>
 
-  <ng-template matStepperIcon="done">
-    <mat-icon>done_all</mat-icon>
-  </ng-template>
-
-  &lt;!&ndash; Custom icon with a context variable. &ndash;&gt;
-  <ng-template matStepperIcon="number" let-index="index">
-    {{index + 1}}
-  </ng-template>-->
-
-  <mat-step [stepControl]="firstFormGroup" label="Personal Data">
-    <form [formGroup]="firstFormGroup">
-      <mat-form-field>
-        <input matInput placeholder="Imię"
-               formControlName="nameControl" required>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Nazwisko"
-               formControlName="surnameControl" required>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Email"
-               formControlName="emailControl" email required>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Telefon (+48XXXXXXXXX)"
-               formControlName="phoneControl" ngModel pattern="\+48([0-9]{9})" required>
-      </mat-form-field>
-      <br>
-      <div formGroupName="address">Adres zamieszkania:
-        <br>
-        <mat-form-field>
-          <input matInput placeholder="Ulica"
-                 formControlName="streetControl" required>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-         <input matInput placeholder="Kod pocztowy"
-                 formControlName="postcodeControl" ngModel pattern="[0-9]{2}\-([0-9]{3})" required>
-        </mat-form-field>
-        <mat-form-field>
-         <input matInput placeholder="Miasto"
-                formControlName="cityControl" required>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
+  <mat-step [stepControl]="stepOneForm" label="Personal Data">
+    <app-step-one></app-step-one>
+    <div>
+      <button mat-button matStepperNext (click)="stepOneForm.markAllAsTouched()">Next</button>
+    </div>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Apartment Details">
-    <form [formGroup]="secondFormGroup">
-      <div formGroupName="address">Adres szukanego mieszkania:
-        <br>
-        <mat-form-field>
-          <input matInput placeholder="Ulica"
-                 formControlName="streetControl" required>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <input matInput placeholder="Kod pocztowy"
-                 formControlName="postcodeControl" ngModel pattern="[0-9]{2}\-([0-9]{3})" required>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Miasto"
-                 formControlName="cityControl" required>
-        </mat-form-field>
-      </div>
-      <label for="purchaseSelect">Sposób zakupu:</label>
-      <br><br>
-      <mat-radio-group color="primary" id="purchaseSelect"
-                       formControlName="purchaseControl" required>
-        <mat-radio-button value="Kredyt">Na kredyt</mat-radio-button>
-        <br><br>
-        <mat-radio-button value="Gotówka">Za gotówkę</mat-radio-button>
-      </mat-radio-group>
-      <br><br>
-      <mat-form-field>
-        <input matInput placeholder="Powierzchnia (m^2)"
-               formControlName="areaControl" ngModel pattern="\d+" min required>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Cena za metr (PLN)"
-               formControlName="formeterControl" ngModel pattern="\d+" min required>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Piętro"
-               formControlName="floorControl" ngModel pattern="\d+" min required>
-      </mat-form-field>
-      <br>
-      <label for="statusSelect">Stan mieszkania:</label>
-      <br><br>
-      <mat-radio-group color="primary" id="statusSelect"
-                       formControlName="statusControl" required>
-        <mat-radio-button value="Deweloperski">Deweloperski</mat-radio-button>
-        <br><br>
-        <mat-radio-button value="Rynek wtórny">Rynek wtórny</mat-radio-button>
-      </mat-radio-group>
-      <br><br>
-      <mat-slide-toggle (toggleChange)="wantMattress = !wantMattress" color="primary">
+  <mat-step [stepControl]="stepTwoForm" label="Appartment Details">
+    <app-step-two></app-step-two>
+    <div>
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext
+              (click)="patchTotalCost(); stepTwoForm.markAllAsTouched()">Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step [optional]="!offerForm.value.withMattress" [stepControl]="stepThreeForm" label="Mattress Details">
+    <app-step-three [hidden]="!offerForm.value.withMattress"></app-step-three>
+    <br>
+    <div>
+      <mat-slide-toggle formControlName="withMattress" color="primary">
         Czy chcesz kupić materac wraz z mieszkaniem?</mat-slide-toggle>
-      <div>
-        <button mat-button matStepperPrevious>Previous</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-  <mat-step *ngIf="wantMattress" [stepControl]="thirdFormGroup"  label="Mattress Details">
-    <form [formGroup]="thirdFormGroup">
-      <label for="mattressSelect">Rozmiar materaca:</label>
-      <br><br>
-      <mat-radio-group color="primary" id="mattressSelect"
-                       formControlName="mattressControl" required>
-        <mat-radio-button value="S">S</mat-radio-button>
-        <br><br>
-        <mat-radio-button value="M">M</mat-radio-button>
-        <br><br>
-        <mat-radio-button value="L">L</mat-radio-button>
-      </mat-radio-group>
-      <br><br>
-      <label for="coverSelect">Rozmiar pokrowca:</label>
-      <br><br>
-      <mat-radio-group color="primary" id="coverSelect"
-                       formControlName="coverControl" required>
-        <mat-radio-button value="S">S</mat-radio-button>
-        <br><br>
-        <mat-radio-button value="M">M</mat-radio-button>
-        <br><br>
-        <mat-radio-button value="L">L</mat-radio-button>
-      </mat-radio-group>
-      <br><br>
-      <mat-form-field>
-        <input matInput placeholder="Nazwa"
-               formControlName="nameControl" required>
-      </mat-form-field>
       <br>
-      <mat-form-field>
-        <input matInput placeholder="Typ"
-               formControlName="typeControl" required>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input matInput placeholder="Firma"
-               formControlName="firmControl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Previous</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-  <mat-step label="Offer Summary" [stepControl]="fourthFormGroup"><!--[stepControl]="fourthFormGroup"-->
-    <div>
-      <ul><h1 class="mat-h1">Personal Data:</h1>
-        <li>Imię: {{firstFormGroup.value.nameControl}}</li>
-        <li>Nazwisko: {{firstFormGroup.value.surnameControl}}</li>
-        <li>Email: {{firstFormGroup.value.emailControl}}</li>
-        <li>Telefon: {{firstFormGroup.value.phoneControl}}</li>
-        Adres zamieszkania: <ul>
-          <li>Ulica: {{firstFormGroup.controls.address.value.streetControl}}</li>
-          <li>Kod pocztowy: {{firstFormGroup.controls.address.value.postcodeControl}}</li>
-          <li>Miasto: {{firstFormGroup.controls.address.value.cityControl}}</li>
-        </ul>
-      </ul>
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext
+              (click)="patchTotalCost();
+              offerForm.value.withMattress ? stepThreeForm.markAllAsTouched() : null">Next</button>
     </div>
-
-    <div>
-      <ul><h1 class="mat-h1">Apartment Details:</h1>
-        Adres szukanego mieszkania:<ul>
-          <li>Ulica: {{secondFormGroup.controls.address.value.streetControl}}</li>
-          <li>Kod pocztowy: {{secondFormGroup.controls.address.value.postcodeControl}}</li>
-          <li>Miasto: {{secondFormGroup.controls.address.value.cityControl}}</li>
-        </ul>
-        <li>Sposób zakupu: {{secondFormGroup.value.purchaseControl}}</li>
-        <li>Powierzchnia: {{secondFormGroup.value.areaControl}} m^2</li>
-        <li>Cena za metr: {{secondFormGroup.value.formeterControl}} PLN</li>
-        <li>Piętro: {{secondFormGroup.value.floorControl}}</li>
-        <li>Stan mieszkania: {{secondFormGroup.value.statusControl}}</li>
-      </ul>
-    </div>
-
-      <div *ngIf="wantMattress">
-        <ul><h1 class="mat-h1">Mattress Details:</h1>
-          <li>Rozmiar materaca: {{thirdFormGroup.value.mattressControl}}</li>
-          <li>Rozmiar pokrowca: {{thirdFormGroup.value.coverControl}}</li>
-          <li>Nazwa: {{thirdFormGroup.value.nameControl}}</li>
-          <li>Typ: {{thirdFormGroup.value.typeControl}}</li>
-          <li>Firma: {{thirdFormGroup.value.firmControl}}</li>
-        </ul>
-      </div>
-      <br>
-    <form [formGroup]="fourthFormGroup">
-      <mat-form-field>
-        <textarea matInput placeholder="Dodatkowe uwagi..." cdkTextareaAutosize
-        formControlName="commentControl"></textarea>
-      </mat-form-field>
-      <br><br>
-      <div>
-        <button mat-button matStepperPrevious>Previous</button>
-        <button mat-button mat-stroked-button>Done</button>
-      </div>
-    </form>
   </mat-step>
 
+  <mat-step [stepControl]="stepFourForm" label="Offer Summary">
+    <app-step-four [stepOneForm]="stepOneForm"
+                   [stepTwoForm]="stepTwoForm"
+                   [stepThreeForm]="stepThreeForm"
+                   [withMattress]="offerForm.value.withMattress"
+                   [totalCost]="offerForm.value.totalCost"></app-step-four>
+    <div>
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button mat-raised-button color="primary"
+              (click)="makeOffer(); stepper.reset()">Done</button>
+    </div>
+  </mat-step>
 </mat-horizontal-stepper>

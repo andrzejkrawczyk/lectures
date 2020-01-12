@@ -1,0 +1,30 @@
+
+<form class="step-form" [formGroup]="this.stepForm">
+  <h3 class="step-form-header">Dane osobowe</h3>
+  <mat-form-field>
+    <input matInput placeholder="Imię"
+           formControlName="firstName" required>
+  </mat-form-field>
+  <mat-error>{{getErrorMessage(stepForm.controls.firstName)}}</mat-error>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Nazwisko"
+           formControlName="lastName" required>
+  </mat-form-field>
+  <mat-error>{{getErrorMessage(stepForm.controls.lastName)}}</mat-error>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Email"
+           formControlName="email" email required>
+  </mat-form-field>
+  <mat-error>{{getErrorMessage(stepForm.controls.email)}}</mat-error>
+  <br>
+  <mat-form-field hintLabel="(+48XXXXXXXXX)">
+    <input matInput placeholder="Telefon"
+           formControlName="phone" ngModel pattern="\+48([0-9]{9})" required>
+  </mat-form-field>
+  <mat-error>{{getErrorMessage(stepForm.controls.phone)}}</mat-error>
+  <br>
+  <app-address [parentFormGroup]="stepForm"></app-address>
+</form>
+
