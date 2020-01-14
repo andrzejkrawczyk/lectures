@@ -1,7 +1,7 @@
 {
-  "name": "vue-material-kit",
-  "author": "Creative Tim https://www.creative-tim.com/",
-  "description": "Vue Material Kit",
+  "name": "vue-to-do",
+  "author": "Filip Dobrzyniewicz",
+  "description": "ToDoList (laboratorium nr 1) zaimplementowane na Vue",
   "version": "1.2.0",
   "private": true,
   "scripts": {
@@ -15,8 +15,6 @@
     "nouislider": "14.0.2",
     "v-tooltip": "2.0.2",
     "vue": "2.6.10",
-    "vue-carousel": "0.18.0",
-    "vue-clickaway": "2.2.2",
     "vue-lazyload": "1.3.1",
     "vue-material": "1.0.0-beta-11",
     "vue-router": "3.0.7"

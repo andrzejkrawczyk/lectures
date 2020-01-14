@@ -1,11 +1,16 @@
 <template>
   <div id="material-kit">
     <div :class="{ 'nav-open': NavbarStore.showNavbar }">
-      <router-view name="header" />
       <div>
         <router-view />
       </div>
-      <router-view name="footer" />
+      <main-footer />
     </div>
   </div>
 </template>
+<script>
+  import MainFooter from "./layout/MainFooter";
+  export default {
+    components: {MainFooter}
+  }
+</script>
