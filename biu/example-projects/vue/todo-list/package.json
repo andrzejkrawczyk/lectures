@@ -1,0 +1,31 @@
+{
+  "name": "vue-to-do",
+  "author": "Filip Dobrzyniewicz",
+  "description": "ToDoList (laboratorium nr 1) zaimplementowane na Vue",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "npm run serve",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev"
+  },
+  "dependencies": {
+    "nouislider": "14.0.2",
+    "v-tooltip": "2.0.2",
+    "vue": "2.6.10",
+    "vue-lazyload": "1.3.1",
+    "vue-material": "1.0.0-beta-11",
+    "vue-router": "3.0.7"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "3.9.2",
+    "@vue/cli-plugin-eslint": "3.9.2",
+    "@vue/cli-service": "3.9.3",
+    "@vue/eslint-config-prettier": "4.0.1",
+    "node-sass": "4.12.0",
+    "sass-loader": "7.1.0",
+    "vue-template-compiler": "2.6.10"
+  }
+}
