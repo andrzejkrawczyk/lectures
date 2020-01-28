@@ -108,9 +108,16 @@ mat-horizontal-stepper {
 }
 
 .mat-button {
-  background-color: lavender;
-  width: 25%;
+  background-color: floralwhite;
+  width: 30%;
+  min-width: fit-content;
   box-shadow: 1px 1px 6px -5px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
 }
 
 mat-radio-button{

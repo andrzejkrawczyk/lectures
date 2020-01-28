@@ -1,25 +1,26 @@
-<mat-horizontal-stepper [formGroup]="offerForm" labelPosition="bottom" linear #stepper>
+<mat-horizontal-stepper [formGroup]="offerForm" labelPosition="bottom" #stepper>
 
   <ng-template matStepperIcon="edit">
     <mat-icon>done</mat-icon>
   </ng-template>
-    <ng-template matStepperIcon="done">
-      <mat-icon>done_all</mat-icon>
-    </ng-template>
+  <ng-template matStepperIcon="done">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
 
   <mat-step [stepControl]="stepOneForm" label="Personal Data">
     <app-step-one></app-step-one>
-    <div>
+    <div class="buttons-container">
       <button mat-button matStepperNext (click)="stepOneForm.markAllAsTouched()">Next</button>
     </div>
   </mat-step>
 
   <mat-step [stepControl]="stepTwoForm" label="Appartment Details">
     <app-step-two></app-step-two>
-    <div>
+    <div class="buttons-container">
       <button mat-button matStepperPrevious>Previous</button>
       <button mat-button matStepperNext
-              (click)="patchTotalCost(); stepTwoForm.markAllAsTouched()">Next</button>
+              (click)="patchTotalCost(); stepTwoForm.markAllAsTouched()">Next
+      </button>
     </div>
   </mat-step>
 
@@ -28,12 +29,15 @@
     <br>
     <div>
       <mat-slide-toggle formControlName="withMattress" color="primary">
-        Czy chcesz kupić materac wraz z mieszkaniem?</mat-slide-toggle>
-      <br>
-      <button mat-button matStepperPrevious>Previous</button>
-      <button mat-button matStepperNext
-              (click)="patchTotalCost();
-              offerForm.value.withMattress ? stepThreeForm.markAllAsTouched() : null">Next</button>
+        Czy chcesz kupić materac wraz z mieszkaniem?
+      </mat-slide-toggle>
+      <div class="buttons-container">
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-button matStepperNext
+                (click)="patchTotalCost();
+              offerForm.value.withMattress ? stepThreeForm.markAllAsTouched() : null">Next
+        </button>
+      </div>
     </div>
   </mat-step>
 
@@ -43,10 +47,11 @@
                    [stepThreeForm]="stepThreeForm"
                    [withMattress]="offerForm.value.withMattress"
                    [totalCost]="offerForm.value.totalCost"></app-step-four>
-    <div>
+    <div class="buttons-container">
       <button mat-button matStepperPrevious>Previous</button>
       <button mat-button mat-raised-button color="primary"
-              (click)="makeOffer(); stepper.reset()">Done</button>
+              (click)="makeOffer(); stepper.reset()">Done
+      </button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

@@ -1,11 +1,11 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { StepOneComponent } from '../step-one/step-one.component';
-import { StepTwoComponent } from '../step-two/step-two.component';
-import { StepThreeComponent } from '../step-three/step-three.component';
-import { StepFourComponent } from '../step-four/step-four.component';
-import { OfferComponent } from '../offer/offer.component';
-import { ChangeDetectorRef } from '@angular/core';
+import {StepOneComponent} from '../step-one/step-one.component';
+import {StepTwoComponent} from '../step-two/step-two.component';
+import {StepThreeComponent} from '../step-three/step-three.component';
+import {StepFourComponent} from '../step-four/step-four.component';
+import {Offer} from '../offer/offer.component';
+import {ChangeDetectorRef} from '@angular/core';
 
 @Component({
   selector: 'app-stepper',
@@ -19,7 +19,7 @@ export class StepperComponent implements OnInit, AfterViewInit {
   @ViewChild(StepTwoComponent, {static: false}) stepTwoComponent: StepTwoComponent;
   @ViewChild(StepThreeComponent, {static: false}) stepThreeComponent: StepThreeComponent;
   @ViewChild(StepFourComponent, {static: false}) stepFourComponent: StepFourComponent;
-  @Output() offerEmitter = new EventEmitter<OfferComponent>();
+  @Output() offerEmitter = new EventEmitter<Offer>();
 
   offerForm: FormGroup;
   stepOneForm: FormGroup;
@@ -27,7 +27,8 @@ export class StepperComponent implements OnInit, AfterViewInit {
   stepThreeForm: FormGroup;
   stepFourForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.offerForm = this.formBuilder.group({
@@ -53,21 +54,22 @@ export class StepperComponent implements OnInit, AfterViewInit {
     });
   }
 
-  makeOffer() {
-    this.offerForm.addControl('personalData', this.stepOneForm);
-    this.offerForm.addControl('appartmentDetails', this.stepTwoForm);
-    if (this.offerForm.value.withMattress) {
-      this.offerForm.addControl('mattressDetails', this.stepThreeForm);
+    makeOffer() {
+      this.offerForm.addControl('personalData', this.stepOneForm);
+      this.offerForm.addControl('appartmentDetails', this.stepTwoForm);
+      if (this.offerForm.value.withMattress) {
+        this.offerForm.addControl('mattressDetails', this.stepThreeForm);
+      }
+      if (this.stepFourForm.value.comment && this.stepFourForm.value.comment !== '') {
+        this.offerForm.addControl('additionalData', this.stepFourForm);
+      }
+      const offer = new Offer(this.offerForm)
+      this.sendOffer(offer);
+      this.offerForm.reset();
     }
-    if (this.stepFourForm.value.comment && this.stepFourForm.value.comment !== '') {
-      this.offerForm.addControl('additionalData', this.stepFourForm);
-    }
-    this.sendOffer(this.offerForm);
-    this.offerForm.reset();
-  }
 
-  sendOffer(offerForm) {
-    this.offerEmitter.emit(new OfferComponent(offerForm));
-    console.log('Offer emitted!');
+  sendOffer(offer) {
+    this.offerEmitter.emit(offer);
+    console.log('Offer emitted!', offer);
   }
 }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { OfferComponent } from '../offer/offer.component';
+import { Offer } from '../offer/offer.component';
 import { MatDialog} from '@angular/material';
 import {OffersViewDetailsDialogComponent} from './offers-view-details-dialog/offers-view-details-dialog.component';
 
@@ -10,7 +10,7 @@ import {OffersViewDetailsDialogComponent} from './offers-view-details-dialog/off
 })
 export class OffersViewComponent implements OnInit {
 
-  @Input() offersList: Array<OfferComponent>;
+  @Input() offersList: Array<Offer>;
   @Output() clickEmitter = new EventEmitter<Event>();
 
   constructor(public dialog: MatDialog) { }
@@ -18,7 +18,7 @@ export class OffersViewComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDetailsDialog(offerToView: OfferComponent) {
+  openDetailsDialog(offerToView: Offer) {
     this.dialog.open(OffersViewDetailsDialogComponent, {
       data: {
         offer: offerToView

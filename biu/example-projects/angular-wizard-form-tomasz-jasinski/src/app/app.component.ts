@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferComponent } from './offer/offer.component';
+import { Offer } from './offer/offer.component';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -9,11 +9,11 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
-  offersList: Array<OfferComponent>;
+  offersList: Array<Offer>;
   selectedTab = new FormControl(0);
 
   ngOnInit() {
-    this.offersList = new Array<OfferComponent>();
+    this.offersList = new Array<Offer>();
   }
 
   getNewOffer($offerEvent) {

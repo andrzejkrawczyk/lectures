@@ -1,28 +1,64 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
   styleUrls: ['./offer.component.css']
 })
-export class OfferComponent implements OnInit {
+// tslint:disable-next-line:component-class-suffix
+export class Offer implements OnInit {
 
   Id: number;
   totalCost: number;
-  personalData: Array<{key: string, value: any}>;
-  appartmentDetails: Array<{key: string, value: any}>;
-  mattressDetails?: Array<{key: string, value: any}>;
-  additionalData?: Array<{key: string, value: any}>;
+  withMattress: boolean;
+  personalData: {
+    firstName,
+    lastName,
+    email,
+    phone,
+    address: {
+      street,
+      zipcode,
+      city
+    }
+  };
+  appartmentDetails: {
+    purchase: any,
+    area: any,
+    forMeterCost: any,
+    floor: any,
+    status: any,
+    cost: any,
+    address: {
+      street: any,
+      zipcode: any,
+      city: any
+    }
+  };
+  mattressDetails?: {
+    mattressSize: any,
+    coverSize: any,
+    name: any,
+    type: any,
+    firm: any,
+    cost: any
+  };
+  additionalData?: {
+    comment: any
+  };
 
 
-
-  constructor(offerForm: FormGroup) {
-    this.personalData = offerForm.value.personalData;
-    this.appartmentDetails = offerForm.value.appartmentDetails;
-    if (offerForm.value.withMattress) { this.mattressDetails = offerForm.value.mattressDetails; }
-    if (offerForm.value.additionalData) { this.additionalData = offerForm.value.additionalData; }
-    this.totalCost = offerForm.value.totalCost;
+  constructor(offerData: FormGroup) {
+    this.personalData = offerData.value.personalData;
+    this.appartmentDetails = offerData.value.appartmentDetails;
+    if (offerData.value.withMattress) {
+      this.mattressDetails = offerData.value.mattressDetails;
+    }
+    if (offerData.value.additionalData) {
+      this.additionalData = offerData.value.additionalData;
+    }
+    this.totalCost = offerData.value.totalCost;
   }
 
   ngOnInit() {
