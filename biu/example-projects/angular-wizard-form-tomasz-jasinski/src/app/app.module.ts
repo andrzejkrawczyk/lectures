@@ -15,7 +15,6 @@ import { StepTwoComponent } from './step-two/step-two.component';
 import { StepThreeComponent } from './step-three/step-three.component';
 import { StepFourComponent } from './step-four/step-four.component';
 import { AddressComponent } from './address/address.component';
-import { Offer } from './offer/offer.component';
 import { OffersViewComponent } from './offers-view/offers-view.component';
 import { OffersViewDetailsDialogComponent } from './offers-view/offers-view-details-dialog/offers-view-details-dialog.component';
 
@@ -28,7 +27,6 @@ import { OffersViewDetailsDialogComponent } from './offers-view/offers-view-deta
     StepThreeComponent,
     StepFourComponent,
     AddressComponent,
-    Offer,
     OffersViewComponent,
     OffersViewDetailsDialogComponent
   ],

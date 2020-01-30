@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Offer } from '../offer/offer.component';
+import { Offer } from '../offer';
 import { MatDialog} from '@angular/material';
 import {OffersViewDetailsDialogComponent} from './offers-view-details-dialog/offers-view-details-dialog.component';
 

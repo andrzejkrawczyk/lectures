@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Offer } from './offer/offer.component';
+import { Offer } from './offer';
 import { FormControl } from '@angular/forms';
 
 @Component({

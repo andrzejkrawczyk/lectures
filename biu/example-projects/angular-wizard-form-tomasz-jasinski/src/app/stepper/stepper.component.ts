@@ -4,7 +4,7 @@ import {StepOneComponent} from '../step-one/step-one.component';
 import {StepTwoComponent} from '../step-two/step-two.component';
 import {StepThreeComponent} from '../step-three/step-three.component';
 import {StepFourComponent} from '../step-four/step-four.component';
-import {Offer} from '../offer/offer.component';
+import {Offer} from '../offer';
 import {ChangeDetectorRef} from '@angular/core';
 
 @Component({
