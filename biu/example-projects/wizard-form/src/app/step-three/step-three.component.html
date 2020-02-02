@@ -1,0 +1,53 @@
+<form class="step-form" [formGroup]="this.stepForm">
+  <h3 class="step-form-header">Dane materaca</h3>
+  <label for="mattressSelect"><b>Rozmiar materaca:</b></label>
+  <br>
+  <mat-radio-group color="primary" id="mattressSelect"
+                   formControlName="mattressSize" required>
+    <mat-radio-button value="S">S</mat-radio-button>
+    <mat-radio-button value="M">M</mat-radio-button>
+    <mat-radio-button value="L">L</mat-radio-button>
+  </mat-radio-group>
+  <mat-error>{{getErrorMessage(stepForm.controls.mattressSize)}}</mat-error>
+  <br>
+  <label for="coverSelect"><b>Rozmiar pokrowca:</b></label>
+  <br>
+  <mat-radio-group color="primary" id="coverSelect"
+                   formControlName="coverSize" required>
+    <mat-radio-button value="S">S</mat-radio-button>
+    <mat-radio-button value="M">M</mat-radio-button>
+    <mat-radio-button value="L">L</mat-radio-button>
+  </mat-radio-group>
+  <mat-error>{{getErrorMessage(stepForm.controls.coverSize)}}</mat-error>
+  <mat-error>{{getErrorMessage(stepForm)}}</mat-error>
+  <label for="firmSelect"><b>Firma:</b></label>
+  <br>
+  <mat-radio-group color="primary" id="firmSelect"
+                   formControlName="firm" required>
+    <mat-radio-button value="Janpol">Janpol</mat-radio-button>
+    <mat-radio-button value="Hilding">Hilding</mat-radio-button>
+    <mat-radio-button value="Materasso">Materasso</mat-radio-button>
+  </mat-radio-group>
+  <mat-error>{{getErrorMessage(stepForm.controls.firm)}}</mat-error>
+  <br>
+  <label for="nameSelect"><b>Nazwa:</b></label>
+  <br>
+  <mat-radio-group color="primary" id="nameSelect"
+                   formControlName="name" required>
+    <mat-radio-button value="Demeter">Demeter</mat-radio-button>
+    <mat-radio-button value="Fides">Fides</mat-radio-button>
+    <mat-radio-button value="Sultan">Sultan</mat-radio-button>
+  </mat-radio-group>
+  <mat-error>{{getErrorMessage(stepForm.controls.name)}}</mat-error>
+  <br>
+  <label for="typeSelect"><b>Typ:</b></label>
+  <br>
+  <mat-radio-group color="primary" id="typeSelect"
+                   formControlName="type" required>
+    <mat-radio-button value="Lateksowy">Lateksowy</mat-radio-button>
+    <mat-radio-button value="Piankowy">Piankowy</mat-radio-button>
+    <mat-radio-button value="Kieszeniowy">Kieszeniowy</mat-radio-button>
+  </mat-radio-group>
+  <mat-error>{{getErrorMessage(stepForm.controls.type)}}</mat-error>
+  <br><br>
+</form>
