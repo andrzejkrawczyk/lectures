@@ -1,0 +1,8 @@
+Kalkulator zysku z faktury / działalności
+Faktura składa się z części netto i podatku VAT. Faktura brutto to część netto powiększona o %VAT.
+
+Przedsiębiorca płaci do US podatek VAT od faktur przychodowych. Może też zapłacić mniejszy VAT pomniejszając go o część VAT z faktur kosztowych.
+
+Podatek dochodowy wylicza się na podstawie części netto pomniejszonej o pozycje kosztowe. Podatek dochodowy to % stawki z wyliczonego dochodu.
+
+Napisz powyższy program wraz z zestawem testów.
