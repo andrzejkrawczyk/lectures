@@ -6,4 +6,7 @@ def test_josephus():
     
     result = list(josephus(user_input, 3))
     
-    assert result == expected_output
+    assert {
+        1: 2,
+        3: 5
+    } == dict(a="asdla")
