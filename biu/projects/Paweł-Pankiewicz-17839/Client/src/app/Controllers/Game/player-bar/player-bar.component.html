@@ -1,0 +1,10 @@
+<div class="container">
+    <app-player-bar-item
+        *ngFor="let i of list"
+        [number]="i.n"
+        [type]="i.type"
+        [card]="i.card"
+        [highlight]="i.highlighted"
+        [discarded]="i.discarded"
+    ></app-player-bar-item>
+</div>
